@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+    // Display the Process ID of the current process
+    printf("Process ID: %d\n", getpid());
+    
+    // Display the Parent Process ID of the current process
+    printf("Parent Process ID: %d\n", getppid());
+    
+    return 0;
+}
