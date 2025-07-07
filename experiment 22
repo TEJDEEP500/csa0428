@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+#define MAX_MEMORY 1000
+int memory[MAX_MEMORY];
+
+// Function to initialize memory
+void initializeMemory() {
+    for (int i = 0; i < MAX_MEMORY; i++) {
+        memory[i] = -1; // -1 indicates that the memory is unallocated
+    }
+}
+
+// Function to display memory status
+void displayMemory() {
+    int i, j;
+    int count = 0;
+    printf("Memory Status:\n");
+
+    for (i = 0; i < MAX_MEMORY; i++) {
+        if (memory[i] == -1) {
+            count++;
+            j = i;
+            while (j < MAX_MEMORY && memory[j] == -1) {
+                j++;
+            }
+            printf("Free memory block %d-%d\n", i, j - 1);
+            i = j - 1;
+        }
+    }
+
+    if (count == 0) {
+        printf("No free memory available.\n");
+    }
+}
